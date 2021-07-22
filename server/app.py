@@ -8,19 +8,22 @@ BOOKS = [
         'id': uuid.uuid4().hex,
         'title': 'On the Road',
         'author': 'Jack Kerouac',
-        'read': True
+        'read': True,
+        'price': '19.99'
     },
     {
         'id': uuid.uuid4().hex,
         'title': 'Harry Potter and the Philosopher\'s Stone',
         'author': 'J. K. Rowling',
-        'read': False
+        'read': False,
+        'price': '9.99'
     },
     {
         'id': uuid.uuid4().hex,
         'title': 'Green Eggs and Ham',
         'author': 'Dr. Seuss',
-        'read': True
+        'read': True,
+        'price': '3.99'
     }
 ]
 

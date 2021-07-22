@@ -13,6 +13,7 @@
               <th scope="col">Title</th>
               <th scope="col">Author</th>
               <th scope="col">Read?</th>
+              <th scope="col">Purchase Price</th>
               <th></th>
             </tr>
           </thead>
@@ -24,6 +25,7 @@
                 <span v-if="book.read">Yes</span>
                 <span v-else>No</span>
               </td>
+              <td>${{ book.price }}</td>
               <td>
                 <div class="btn-group" role="group">
                   <button
