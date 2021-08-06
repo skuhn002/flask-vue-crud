@@ -1,4 +1,5 @@
 import uuid
+import stripe
 from flask import Flask, jsonify, request
 from flask_cors import CORS
 
@@ -34,6 +35,14 @@ DEBUG = True
 # instantiate the app
 app = Flask(__name__)
 app.config.from_object(__name__)
+
+# configure stripe - sever side
+stripe_keys = {
+    'secret_key': os.environ['STRIPE_SECRET_KEY'],
+    'publishable_key': os.environ['STRIPE_PUBLISHABLE_KEY'],
+}
+
+stripe.api_key = stripe_keys['secret_key']
 
 # enable CORS
 CORS(app, resources={r'/*': {'origins': '*'}})
@@ -89,6 +98,14 @@ def single_book(book_id):
         response_object['message'] = 'Book removed!'
     return jsonify(response_object)
 
+
+
+## stripe config - client side
+
+@app.route('/config')
+def get_publishable_key():
+    stripe_config = {'publicKey': stripe_keys['publishable_key']}
+    return jsonify(stripe_config)
 
 if __name__ == '__main__':
     app.run()

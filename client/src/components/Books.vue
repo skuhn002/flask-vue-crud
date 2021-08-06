@@ -41,6 +41,11 @@
                           @click="onDeleteBook(book)">
                       Delete
                   </button>
+                  <button type="button"
+                          class="btn btn-primary btn-sm"
+                          @click="purchaseBook(book.id)">
+                      Purchase
+                  </button>
                 </div>
               </td>
             </tr>
@@ -267,6 +272,9 @@ export default {
     },
     onDeleteBook(book) {
       this.removeBook(book.id);
+    },
+    purchaseBook(bookId) {
+      console.log(bookId);
     },
   },
   created() {
